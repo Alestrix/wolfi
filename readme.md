@@ -24,7 +24,9 @@ that you need available inside the container. A private key file can only be rea
 have to change the user the container is run as:
 
 ```
-docker run -ti --rm -v /home/me/.ssh/id_ed25519:/id_key:ro --user $(id -u) -v /etc/passwd:/etc/passwd:ro -v /tmp/target:/target \
-    alestrix/wolfi-openssh-client:latest-amd64 sftp -o StrictHostKeyChecking=no -i /id_key web@myserver.tld
+docker run -ti --rm -v /home/me/.ssh/id_ed25519:/id_key:ro --user $(id -u) \
+    -v /etc/passwd:/etc/passwd:ro -v /tmp/target:/target \
+    alestrix/wolfi-openssh-client:latest-amd64 \
+    sftp -o StrictHostKeyChecking=no -i /id_key web@myserver.tld
 ```
 
