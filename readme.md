@@ -7,6 +7,7 @@ This is a minimal "distroless" image that only contains alpine's openssh-client-
 ## How
 
 The container image is built using [`apko`](https://edu.chainguard.dev/open-source/apko/getting-started-with-apko/)
+by Chainguard, creators of the [Wolfi Linux (un)distribution](https://github.com/wolfi-dev/).
 
 ## Usage
 
@@ -30,3 +31,6 @@ docker run -ti --rm -v /home/me/.ssh/id_ed25519:/id_key:ro --user $(id -u) \
     sftp -o StrictHostKeyChecking=no -i /id_key web@myserver.tld
 ```
 
+## Building your own
+
+Have a look at `apko-openssh-client.yaml` and `build_and_push.sh`.
