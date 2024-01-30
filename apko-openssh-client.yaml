@@ -21,6 +21,3 @@ accounts:
   - username: nonroot
     uid: 65500
   run-as: 65500
-
-## Bauen mit
-# docker run --rm -v ${PWD}:/work --network=host cgr.dev/chainguard/apko build --arch x86_64 /work/apko-openssh-client.yaml apko-openssh-client:test /work/apko-openssh-client-test.tar
