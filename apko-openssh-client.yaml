@@ -1,0 +1,32 @@
+contents:
+  repositories:
+  - https://dl-cdn.alpinelinux.org/alpine/v3.19/main
+  - https://dl-cdn.alpinelinux.org/alpine/v3.19/community
+  packages:
+  - openssh-client-default
+  - openssh-keygen
+  - openssh-client-common
+  - so:libc.musl-x86_64.so.1
+  - so:libcrypto.so.3
+  - so:libz.so.1
+
+entrypoint:
+  command: /usr/bin/scp
+
+environment:
+  PATH: /usr/bin
+
+accounts:
+  groups:
+  - groupname: nonroot
+    gid: 65500
+  users:
+  - username: nonroot
+    uid: 65500
+  run-as: 65500
+
+## Bauen mit
+# docker run --rm -v ${PWD}:/work --network=host \
+#    cgr.dev/chainguard/apko build --arch x86_64 \
+#   /work/apko-openssh-client.yaml apko-openssh-client:test
+#   /work/apko-openssh-client-test.tar
